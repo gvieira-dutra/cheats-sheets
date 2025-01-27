@@ -198,44 +198,48 @@ Below exemplifies how we can directly use SQL commands against database
     }
 ```
 
-###
+### Protecting Against SQL Injection
+
+Always user parameters, NEVER USE STRING INTERPOLATION
+
+### Detecting Migrations
+
+With the code below, we are able to retrieve how many pending migrations our application has:
 
 ```
+using var db = new Curso.Data.ApplicationContext();
 
+var pendingMigrations = db.Database.GetPendingMigrations();
 ```
 
-###
+To retrieve ALL MIGRATIONS, we can use `.GetMigrations()` instead.
+
+To retrieve a list of APPLIED migrations we can use `.GetAppliedMigrations()` instead.
+
+To list all migrations, applied and pending, we can:
+
+`dotnet ef migrations list --context`
+
+To list applied migrations we can:
+
+### Applying Migration on Execution Time
+
+NOT A GOOD PRACTICE, BUT POSSIBLE
+
+The command below when called on execution time will simple apply the migrations on the database.
 
 ```
+using var db = new Curso.Data.ApplicationContext();
 
+db.Database.Migrate();
 ```
 
-###
+### Generating DB Script
+
+To generate a script so we can see what exactly is being done on our database, we can:
 
 ```
+using var db = new ApplicationContext();
 
-```
-
-###
-
-```
-
-```
-
-###
-
-```
-
-```
-
-###
-
-```
-
-```
-
-###
-
-```
-
+var script = db.Database.GenerateCreateScript();
 ```
