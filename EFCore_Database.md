@@ -81,7 +81,7 @@ Somewhat similar approach can be used to delete and obj.
 Ensure Created is an alternative for migration  
 Ensure Deleted is used to delete everything from the database
 
-### Ensure Created For Multiple Entities
+### Ensure Created For Multiple Context
 
 In this approach, we first create the database based on the db1 instance, then we create a table or db2 as the database already exists!!
 
@@ -219,8 +219,6 @@ To retrieve a list of APPLIED migrations we can use `.GetAppliedMigrations()` in
 To list all migrations, applied and pending, we can:
 
 `dotnet ef migrations list --context`
-
-To list applied migrations we can:
 
 ### Applying Migration on Execution Time
 
