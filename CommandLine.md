@@ -156,12 +156,43 @@ dotnet dev-certs https --trust [makes certs thrusted]
 
 ```
 
-### Add and Drop Migrations
+### Managing Migrations
 
 change `add` to `drop` in the commands below to drop a database.
 
 ```
 dotnet ef migrations add [migration Name]
+```
+
+To update database
+
+```
+dotnet ef database update [optional migration name]
+```
+
+To remove last migration
+
+```
+dotnet ef migrations remove
+```
+
+To list all migrations
+
+```
+dotnet ef migrations list
+```
+
+To script the migration
+
+```
+dotnet ef migrations script
+```
+
+Revert database to specific migration
+
+```
+dotnet ef database update [MigrationName]
+
 ```
 
 if there's more than one context:
